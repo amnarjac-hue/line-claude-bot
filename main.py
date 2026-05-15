@@ -2,9 +2,10 @@ import os
 import json
 import requests
 from flask import Flask, request, abort
-from linebot import LineBotApi, WebhookHandler
-from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
+from linebot.v3.messaging import ApiClient, Configuration, MessagingApi, ReplyMessageRequest, TextMessage as LineTextMessage
+from linebot.v3.webhooks import MessageEvent, TextMessageContent
+from linebot.v3.webhook import WebhookHandler
+from linebot.v3.exceptions import InvalidSignatureError
 import anthropic
 
 app = Flask(__name__)
